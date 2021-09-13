@@ -1,7 +1,4 @@
-
 Welcome to My Lap211 Java Project - FoodRefrigeratorManagement Project
-=======
-
 You will find in this repo:
 NetBeans Apache Ant project
 .gitignore file for NetBEans project
