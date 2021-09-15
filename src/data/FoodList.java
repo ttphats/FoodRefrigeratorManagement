@@ -7,6 +7,7 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.sql.Date;
@@ -43,7 +44,7 @@ public class FoodList {
         weight = InputData.getADouble("Input food weight: ", "The food weight's format is wrong! Try again!");
         type = InputData.getString("Input food type: ", "The food type is required!");
         place = InputData.getString("Input food place: ", "The food place is required!");
-        expiredDate = InputData.getADate("Input a date value yyyy/d/m: ", "Inputted date is invalid! Please try again:");
+        expiredDate = InputData.getADate("Input a date value yyyy/m/d: ", "Inputted date is invalid! Please try again:");
         foodList.add(new Food(ID, name, weight, type, place, expiredDate));
         System.out.println("A new food is added sucessfully");
 
@@ -125,18 +126,43 @@ public class FoodList {
         for (int i = 0; i < foodList.size(); i++) {
             foodList.get(i).showFood();
         }
+
     }
 
+//    public void writeToFile() {
+//        String fileName = InputData.getString("Input file's name:", "The file's name is required!!!");
+//
+//        try {
+//            FileWriter fw = new FileWriter(fileName + ".txt");
+//            BufferedWriter bw = new BufferedWriter(fw);
+//
+//            for (Food food : foodList) {
+//                bw.write(food.toString());
+//                bw.newLine();
+//            }
+//            bw.close();
+//            fw.close();
+//            System.out.println("Store the food list to binary file is success");
+//
+//        } catch (Exception e) {
+//            System.out.println("Store the food list to binary file is ERROR! Please try again!");
+//        }
+//    }
     public void writeToFile() {
         String fileName = InputData.getString("Input file's name:", "The file's name is required!!!");
+        BufferedWriter bw = null;
+        FileWriter fw = null;
 
         try {
-            FileWriter fw = new FileWriter(fileName + ".txt");
-            BufferedWriter bw = new BufferedWriter(fw);
-
+            File file = new File(fileName + ".txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
             for (Food food : foodList) {
                 bw.write(food.toString());
-                bw.newLine();
+                //bw.newLine();
             }
             bw.close();
             fw.close();
@@ -144,6 +170,17 @@ public class FoodList {
 
         } catch (Exception e) {
             System.out.println("Store the food list to binary file is ERROR! Please try again!");
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -153,9 +190,17 @@ public class FoodList {
             FileReader fr = new FileReader("lab1.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
-            while ((line = br.readLine()) != null) {
+//            while ((line = br.readLine()) != null) {
+//                System.out.println(line);
+//            }
+            if ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
+            if ((foodList.isEmpty()) & (line != null)) {
+                System.out.println("The fridge is empty. Nothing to print!");
+
+            }
+
             fr.close();
             br.close();
         } catch (Exception ex) {
