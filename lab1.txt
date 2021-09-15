@@ -1,11 +1,4 @@
-|F11111|Con ga         |4.00   |Thit Nac       |Ngan dong      |2024-06-06  |
-|F00011|Con ca         |2.40   |Do hop         |Ngan mat       |2024-05-06  |
-|F55555|Con heo        |3.50   |Thit Mo        |Ngan dong      |2023-05-05  |
-|F44444|Con bo         |2.00   |Xuong          |Ngan dong      |2023-04-04  |
-|F99999|Banh mi        |0.40   |Cat lat        |Ngan mat       |2023-01-01  |
-|F66666|Ca chua        |4.30   |Rau cu         |Ngan mat       |2022-03-03  |
-|F77777|Cai xanh       |0.50   |Rau cu         |Ngan mat       |2022-02-02  |
-|F88888|Tao do         |3.70   |Trai cay       |Ngan mat       |2021-10-10  ||F00022|TRAI CAM       |0,80   |TRAI CAY       |NGAN MAT       |2025-01-01  |
+|F00022|TRAI CAM       |0,80   |TRAI CAY       |NGAN MAT       |2025-01-01  |
 |F11111|CON GA         |4,00   |THIT NAC       |NGAN DONG      |2024-06-06  |
 |F00011|CON CA         |2,40   |DO HOP         |NGAN MAT       |2024-05-06  |
 |F55555|CON HEO        |3,50   |THIT MO        |NGAN DONG      |2023-05-05  |
