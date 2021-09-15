@@ -67,6 +67,7 @@ public class FoodManagement {
                 case 4:
                     System.out.println("You are preparing to "
                             + "print the food list descending by expired date");
+                    fridge.readFile();
                     fridge.printFoodListDescendingByExpiredDate();
                     break;
                 case 5:

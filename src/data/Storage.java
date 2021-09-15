@@ -5,8 +5,12 @@
  */
 package data;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.ObjectInputStream;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -142,4 +146,21 @@ public class Storage {
             System.out.println("Store the food list to binary file is ERROR! Please try again!");
         }
     }
+
+    
+        public void readFile() {
+            try {
+
+            FileReader fr = new FileReader("lab1.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            fr.close();
+            br.close();
+        } catch (Exception ex) {
+        }
+    }
+
 }
