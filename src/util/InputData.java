@@ -95,7 +95,7 @@ public class InputData {
         String id;
         while (true) {
             System.out.print(inputMsg);
-            id = sc.nextLine().trim();
+            id = sc.nextLine().trim().toUpperCase();
             if (id.length() == 0 || id.isEmpty()) {
                 System.out.println(errorMsg);
             } else {
@@ -116,6 +116,18 @@ public class InputData {
             } else if ((new Date(t)).before(d)) {
                 System.out.println("Food is out of date!!!! Please try again:");
             } else {
+                d = new Date(t);
+                return d;
+            }
+
+        }
+    }
+        public static Date getADate(String inputStr) {
+        Date d = new Date(System.currentTimeMillis());
+        while (true) {
+            long t = BooleanDate.toDate(inputStr);
+            if (t < 0) {
+            }   else {
                 d = new Date(t);
                 return d;
             }

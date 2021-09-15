@@ -14,6 +14,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.StringTokenizer;
+import util.BooleanDate;
 import util.InputData;
 
 /**
@@ -119,35 +121,15 @@ public class FoodList {
         System.out.println(header);
         if (foodList.isEmpty()) {
             readFile();
-            //System.out.println("The fridge is empty. Nothing to print!");
         }
-        Collections.sort(foodList);
 
+        Collections.sort(foodList);
         for (int i = 0; i < foodList.size(); i++) {
             foodList.get(i).showFood();
         }
 
     }
 
-//    public void writeToFile() {
-//        String fileName = InputData.getString("Input file's name:", "The file's name is required!!!");
-//
-//        try {
-//            FileWriter fw = new FileWriter(fileName + ".txt");
-//            BufferedWriter bw = new BufferedWriter(fw);
-//
-//            for (Food food : foodList) {
-//                bw.write(food.toString());
-//                bw.newLine();
-//            }
-//            bw.close();
-//            fw.close();
-//            System.out.println("Store the food list to binary file is success");
-//
-//        } catch (Exception e) {
-//            System.out.println("Store the food list to binary file is ERROR! Please try again!");
-//        }
-//    }
     public void writeToFile() {
         String fileName = InputData.getString("Input file's name:", "The file's name is required!!!");
         BufferedWriter bw = null;
@@ -193,17 +175,25 @@ public class FoodList {
 //            while ((line = br.readLine()) != null) {
 //                System.out.println(line);
 //            }
-            if ((line = br.readLine()) != null) {
-                System.out.println(line);
+            while ((line = br.readLine()) != null) {
+                StringTokenizer stk = new StringTokenizer(line, "|", false);
+                String ID = stk.nextToken().toUpperCase();
+                String name = stk.nextToken().toUpperCase().trim();
+                double weight = Double.parseDouble(stk.nextToken());
+                String type = stk.nextToken().toUpperCase().trim();
+                String place = stk.nextToken().toUpperCase().trim();
+                String inputDate = stk.nextToken().trim();
+                Date expiredDate = InputData.getADate(inputDate);
+
+                foodList.add(new Food(ID, name, weight, type, place, expiredDate));
             }
-            if ((foodList.isEmpty()) & (line != null)) {
+            if (((br.readLine() == null) && (foodList.isEmpty()))) {
                 System.out.println("The fridge is empty. Nothing to print!");
-
             }
-
             fr.close();
             br.close();
-        } catch (Exception ex) {
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
