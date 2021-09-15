@@ -7,10 +7,8 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.ObjectInputStream;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +19,7 @@ import util.InputData;
  *
  * @author SE150968 - Thai Thanh Phat
  */
-public class Storage {
+public class FoodList {
 
     ArrayList<Food> foodList = new ArrayList();
 
@@ -45,7 +43,7 @@ public class Storage {
         weight = InputData.getADouble("Input food weight: ", "The food weight's format is wrong! Try again!");
         type = InputData.getString("Input food type: ", "The food type is required!");
         place = InputData.getString("Input food place: ", "The food place is required!");
-        expiredDate = InputData.getADate("Input a date value yyyy/d/m: ", "Inputted date is invalid!");
+        expiredDate = InputData.getADate("Input a date value yyyy/d/m: ", "Inputted date is invalid! Please try again:");
         foodList.add(new Food(ID, name, weight, type, place, expiredDate));
         System.out.println("A new food is added sucessfully");
 
@@ -114,14 +112,16 @@ public class Storage {
     }
 
     public void printFoodListDescendingByExpiredDate() {
-        if (foodList.isEmpty()) {
-            System.out.println("The fridge is empty. Nothing to print!");
-        }
-        Collections.sort(foodList);
         System.out.println("------------------------------------");
         System.out.println("Here is the food list in fridge");
         String header = String.format("|%-6s|%-15s|%-7s|%-15s|%-15s|%-12s|", "ID", "Name", "Weight", "Type", "Place", "Expired Date");
         System.out.println(header);
+        if (foodList.isEmpty()) {
+            readFile();
+            //System.out.println("The fridge is empty. Nothing to print!");
+        }
+        Collections.sort(foodList);
+
         for (int i = 0; i < foodList.size(); i++) {
             foodList.get(i).showFood();
         }
@@ -147,9 +147,8 @@ public class Storage {
         }
     }
 
-    
-        public void readFile() {
-            try {
+    public void readFile() {
+        try {
 
             FileReader fr = new FileReader("lab1.txt");
             BufferedReader br = new BufferedReader(fr);

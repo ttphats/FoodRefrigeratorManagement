@@ -5,7 +5,7 @@
  */
 package foodmanagement;
 
-import data.Storage;
+import data.FoodList;
 import java.util.Scanner;
 import ui.Menu;
 import util.InputData;
@@ -28,7 +28,7 @@ public class FoodManagement {
         menu.addNewOption("5. Store the food list to binary file");
         menu.addNewOption("6. Quit");
 
-        Storage fridge = new Storage();
+        FoodList fridge = new FoodList();
         Scanner sc = new Scanner(System.in);
         int choice;
         String response;
@@ -67,7 +67,7 @@ public class FoodManagement {
                 case 4:
                     System.out.println("You are preparing to "
                             + "print the food list descending by expired date");
-                    fridge.readFile();
+                    //fridge.readFile();
                     fridge.printFoodListDescendingByExpiredDate();
                     break;
                 case 5:

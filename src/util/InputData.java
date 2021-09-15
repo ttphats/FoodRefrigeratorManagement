@@ -113,25 +113,27 @@ public class InputData {
             long t = BooleanDate.toDate(inputStr);
             if (t < 0) {
                 System.out.println(errorMsg);
+            } else if ((new Date(t)).before(d)) {
+                System.out.println("Food is out of date!!!! Please try again:");
             } else {
                 d = new Date(t);
-                //System.out.println("Inputted date: " + d);
                 return d;
             }
+
         }
     }
 
     //main() để test thử yêu cầu nhập mã số theo định dạng cho
-    //trước: D và 5 con số đi kèm
-    //Nhấn Shift-F6 để chạy thử
-    public static void main(String[] args) {
-        String id = getID("Input ID(DXXXXX): ", "Your input must be under "
-                + "the format of DXXXXX, X stands for a digit",
-                "^[D|d]\\d{5}$");
-        System.out.println("Your ID: " + id);
-        
-        Date d = getADate("Input a date value yyyy/d/m: ", "Inputted date is invalid!");
-        System.out.println("Your Date: " + d);
-        
-    }
+   
+//    public static void main(String[] args) {
+//        String id = getID("Input ID(DXXXXX): ", "Your input must be under "
+//                + "the format of DXXXXX, X stands for a digit",
+//               "^[D|d]\\d{5}$");
+//       System.out.println("Your ID: " + id);
+//
+//        Date d = getADate("Input a date value yyyy/d/m: ", "Inputted date is invalid! Please try again:");
+//
+//        System.out.println("Your Date: " + d);
+//
+//    }
 }
