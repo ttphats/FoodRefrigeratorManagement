@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author skpha
+ * @author SE150968 - Thai Thanh Phat
  */
 public class Food implements Comparable<Food> {
 
