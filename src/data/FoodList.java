@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -131,6 +132,7 @@ public class FoodList {
     }
 
     public void writeToFile() {
+
         String fileName = InputData.getString("Input file's name:", "The file's name is required!!!");
         BufferedWriter bw = null;
         FileWriter fw = null;
@@ -167,6 +169,7 @@ public class FoodList {
     }
 
     public void readFile() {
+
         try {
 
             FileReader fr = new FileReader("lab1.txt");
@@ -179,7 +182,7 @@ public class FoodList {
                 StringTokenizer stk = new StringTokenizer(line, "|", false);
                 String ID = stk.nextToken().toUpperCase();
                 String name = stk.nextToken().toUpperCase().trim();
-                double weight = Double.parseDouble(stk.nextToken());
+                double weight = Double.parseDouble(stk.nextToken().replace(",", "."));
                 String type = stk.nextToken().toUpperCase().trim();
                 String place = stk.nextToken().toUpperCase().trim();
                 String inputDate = stk.nextToken().trim();
