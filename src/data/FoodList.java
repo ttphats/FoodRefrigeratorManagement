@@ -11,12 +11,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.sql.Date;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import util.BooleanDate;
 import util.InputData;
 
 /**

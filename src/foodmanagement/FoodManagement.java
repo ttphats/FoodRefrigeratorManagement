@@ -12,7 +12,7 @@ import util.InputData;
 
 /**
  *
- * @author skpha
+ * @author SE150968 - Thai Thanh Phat
  */
 public class FoodManagement {
 
