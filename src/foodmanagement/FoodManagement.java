@@ -20,7 +20,7 @@ public class FoodManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Menu menu = new Menu("Welcome to Food Management - @ 2021 by <SE150968 - Thái Thành Phát >");
+        Menu menu = new Menu("Welcome to Food Refrigerator Management - @ 2021 by <SE150968 - Thái Thành Phát >");
         menu.addNewOption("1. Add a new food");
         menu.addNewOption("2. Search a food by name");
         menu.addNewOption("3. Remove the food by ID");

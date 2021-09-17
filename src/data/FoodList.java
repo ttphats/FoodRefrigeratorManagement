@@ -173,9 +173,7 @@ public class FoodList {
             FileReader fr = new FileReader("lab1.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
-//            while ((line = br.readLine()) != null) {
-//                System.out.println(line);
-//            }
+
             while ((line = br.readLine()) != null) {
                 StringTokenizer stk = new StringTokenizer(line, "|", false);
                 String ID = stk.nextToken().toUpperCase();
