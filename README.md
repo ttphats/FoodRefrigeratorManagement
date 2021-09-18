@@ -55,6 +55,16 @@ The program displays a menu and asks users to input an option from 1 to 5.
 	* The user enters the file name (<<file_name>>.dat) you want to save.
 	* The program will save all information of the phone in the store to the file.
 	* After save, the program returns to the menu.
+	|F00022|TRAI CAM       |0,80   |TRAI CAY       |NGAN MAT       |2025-01-01  |
+	|F11111|CON GA         |4,00   |THIT NAC       |NGAN DONG      |2024-06-06  |
+	|F00011|CON CA         |2,40   |DO HOP         |NGAN MAT       |2024-05-06  |
+	|F55555|CON HEO        |3,50   |THIT MO        |NGAN DONG      |2023-05-05  |
+	|F44444|CON BO         |2,00   |XUONG          |NGAN DONG      |2023-04-04  |
+	|F99999|BANH MI        |0,40   |CAT LAT        |NGAN MAT       |2023-01-01  |
+	|F66666|CA CHUA        |4,30   |RAU CU         |NGAN MAT       |2022-03-03  |
+	|F77777|CAI XANH       |0,50   |RAU CU         |NGAN MAT       |2022-02-02  |
+	|F88888|TAO DO         |3,70   |TRAI CAY       |NGAN MAT       |2021-10-10  |
+
 
 * NetBeans Apache Ant project including JUnit Test
 * .gitignore file for NetBeans project
